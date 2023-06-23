@@ -4,13 +4,19 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
+/* styling h1 using font size clamp to incorporate fluid font */
 h1 {
-    font-size: 5rem;
+    font-size: clamp(2rem, 15vw, 5rem);  
+    /* font-size: 5rem; */
     text-transform: uppercase;
     border-right: 10px dashed #f67c05;
     padding-right: 15px;
     color: #424242;
+}
+
+p {
+    font-size: clamp(1rem, 3vw, 1.2rem);  
+    /* font-size: 1.2rem; */
 }
 
 h3 {
@@ -21,7 +27,7 @@ h3 {
     color: white;
 }
 
-
+/* styling nav, sticky position with z-index 1 to be over all the other contents in the page when scrolling */
 nav {
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(45,44,44,1) 100%); 
@@ -42,7 +48,7 @@ nav p {
     font-size: 2.5rem;
     font-weight: bolder;
 }
-
+/* styling ul, li, a in the nav */
 nav ul {
     list-style: none;
     display: flex;
@@ -68,10 +74,12 @@ nav a:hover, a:focus {
     padding-bottom: 4px;
 }
 
+/* hiding hamburger menu */
 .hamburger {
     display: none;
 }
 
+/* styling hamburger menu */
 .bar {
     display: block;
     width: 25px;
@@ -79,32 +87,31 @@ nav a:hover, a:focus {
     margin: 5px auto;
     background-color: white;
 }
+
 .container {
     /* min-width: 1200px; */
     margin: 0 auto;
 }
 
+/* styling all the contents divs */
 .content {
-    /* width: 1200px; */
     height: 1333px;
     background-color: #f4f4f4;
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+/* adding a background image to the first content div */
 .content:nth-child(1) {
-    /* width: 1200px; */
-    /* height: 1333px; */
     background-image: url(/images/placeholder2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* changing the background colors for odd content divs */
 .content:nth-child(odd){
     background-color: #2a2a2a;
 
@@ -124,6 +131,7 @@ nav a:hover, a:focus {
     font-weight: bold;
 }
 
+/* styling the div for the images in the work page */
 .work-images {
     display: flex;
     justify-content: space-between;
@@ -140,14 +148,12 @@ nav a:hover, a:focus {
     border-radius: 50%;
 }
 
-
+/* adding the white shadow for the images */
 .work1, .work2, .work3 {
     background-color: white;
     width: 400px;
     height: 475px;
     border-radius: 440px;
-    /* padding: 10px;
-    box-shadow: 10px 10px #888888; */
 }
 
 .work-images h2, p {
@@ -205,7 +211,6 @@ section {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-right: 40px;
-
     color: white;
 }
 
@@ -238,33 +243,59 @@ form input:last-child  {
     margin-top: 10px;
 }
 
-/* .map{
-    width: 80%;
-} */
-
+/* changing color for the last p in the last content div */
 .content:last-child .sections:last-child p {
     color: black;
 }
 
-@media screen and (max-width: 1200px) {
+
+/* media screen for desktop until 1999px */
+@media screen and (max-width: 1999px) {
     
-    .content {
-        height: 1600px;
+    .content:first-child {
+        height: 1366px;
     }
+
+    .content {
+        height: auto;
+        padding: 20px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
     .work-images {
-        /* display: none; */
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-}
+    .sections {
+        flex-direction: column;
+    }
 
+    .sections p {
+        padding-bottom: 20px;
+    }
+
+    .work1, .work2, .work3 {
+        margin: 10px;
+    }
+
+    .map {
+        margin-top: 20px;
+    }
+
+
+}
+/* media query for tablet */
 @media (max-width: 992px) {	
     nav ul {
-        /* border-bottom: none; */
-        /* flex-direction: column; */
         display: none;
     }
 
@@ -274,18 +305,9 @@ form input:last-child  {
     
 }
 
-
+/* media query for mobile */
 @media (max-width: 768px) {
 
-    h1 {
-        font-size: 4rem;
-        padding: 0;
-    }
-    
-    h2 {
-        font-size: 1rem;
-    }
-    
     nav {
         height: 100px;
         padding: 1% 7%;
@@ -295,8 +317,6 @@ form input:last-child  {
     }
 
     nav ul {
-        /* border-bottom: none; */
-        /* flex-direction: column; */
         display: none;
     }
 
@@ -322,13 +342,13 @@ form input:last-child  {
         margin-bottom: 10px;
     }
     .work-images img {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
     }
 
     .work1, .work2, .work3 {
-        width: 200px;
-        height: 275px;
+        width: 250px;
+        height: 325px;
         margin-bottom: 20px;
     }
 
